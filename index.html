@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ПромЛесСнаб - Пиломатериалы в Москве и МО</title>
+    <title>Hub - Пиломатериалы в Москве и МО</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,26 +15,46 @@
 
     <header class="header">
         <div class="container">
-            <div class="header-content" data-aos="fade-down">
-                <!-- НОВОЕ: Текстовый логотип заменен на картинку -->
+            <div class="header-content">
                 <a href="#" class="logo">
                     <img src="img/logo.png" alt="Логотип Hub">
                 </a>
-                <nav class="nav">
-                    <a href="#about">О нас</a>
-                    <a href="#products">Продукция</a>
-                    <a href="#delivery">Доставка</a>
-                    <a href="#contacts">Контакты</a>
-                </nav>
-                <div class="header-contacts">
-                    <a href="tel:+79264000506" class="phone">+7 (926) 400-05-06</a>
-                    <a href="#contacts" class="btn btn-outline">Заказать звонок</a>
+                
+                <!-- Меню для ПК -->
+                <div class="desktop-menu">
+                    <nav class="nav">
+                        <a href="#about">О нас</a>
+                        <a href="#products">Продукция</a>
+                        <a href="#delivery">Доставка</a>
+                        <a href="#contacts">Контакты</a>
+                    </nav>
+                    <div class="header-contacts">
+                        <a href="tel:+79264000506" class="phone">+7 (926) 400-05-06</a>
+                        <a href="#contacts" class="btn btn-outline">Заказать звонок</a>
+                    </div>
                 </div>
+
+                <!-- НОВОЕ: Кнопка-гамбургер для мобильных -->
+                <button class="burger-menu" id="burger-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- НОВОЕ: Выезжающее мобильное меню -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-mobile-menu" id="close-mobile-menu">×</button>
+        <a href="#about">О нас</a>
+        <a href="#products">Продукция</a>
+        <a href="#delivery">Доставка</a>
+        <a href="#contacts">Контакты</a>
+        <a href="tel:+79264000506" class="mobile-phone">+7 (926) 400-05-06</a>
+        <a href="#contacts" class="btn">Заказать звонок</a>
+    </div>
+
     <main>
+        <!-- ... остальной контент без изменений ... -->
         <section class="hero" id="home">
             <div class="video-background">
                 <div class="video-overlay"></div>
@@ -47,7 +67,6 @@
             </div>
         </section>
 
-        <!-- Остальные секции остаются без изменений в HTML -->
         <section class="about" id="about">
             <div class="container">
                 <h2 data-aos="fade-up">Более 10 лет на рынке</h2>

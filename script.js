@@ -5,17 +5,39 @@ AOS.init({
     offset: 50,
 });
 
-// Запускаем скрипты только после полной загрузки API Яндекс.Карт
+// --- ЛОГИКА ГАМБУРГЕР-МЕНЮ ---
+const burgerBtn = document.getElementById('burger-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+function openMenu() {
+    mobileMenu.classList.add('is-open');
+    document.body.classList.add('menu-open'); // Блокируем скролл
+}
+
+function closeMenu() {
+    mobileMenu.classList.remove('is-open');
+    document.body.classList.remove('menu-open'); // Разблокируем скролл
+}
+
+burgerBtn.addEventListener('click', openMenu);
+closeMobileMenuBtn.addEventListener('click', closeMenu);
+
+// Закрываем меню при клике на любую ссылку в нем
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// --- Яндекс.Карты и все остальное ---
 ymaps.ready(init);
 
 function init() {
-    // --- Элементы для всплывающего окна ---
     const modal = document.getElementById('modal');
     const closeBtn = document.querySelector('.close-btn');
 
-    // --- Карта на странице контактов ---
     const mapContainer = document.getElementById('map');
-    if (mapContainer.innerHTML === '') { // Создаем карту, только если контейнер пуст
+    if (mapContainer && mapContainer.innerHTML === '') {
         const myMap = new ymaps.Map("map", {
             center: [55.914612, 37.747191],
             zoom: 14,
@@ -23,38 +45,38 @@ function init() {
         });
         const myPlacemark = new ymaps.Placemark([55.914612, 37.747191], {
             hintContent: 'Наш склад', balloonContent: 'Московская область, г. Мытищи, ул. Промышленная, 1'
-        }, { preset: 'islands#redDotIcon' }); // Метка в цвет сайта
+        }, { preset: 'islands#redDotIcon' });
         myMap.geoObjects.add(myPlacemark);
         myMap.behaviors.disable('scrollZoom');
     }
 
-    // --- Калькулятор доставки ---
     const calculateBtn = document.getElementById('calculate-btn');
     const addressInput = document.getElementById('address');
-    new ymaps.SuggestView('address');
+    if(addressInput) new ymaps.SuggestView('address');
 
-    calculateBtn.addEventListener('click', function() {
-        if (!addressInput.value) {
-            addressInput.style.borderColor = 'red';
-            setTimeout(() => { addressInput.style.borderColor = '' }, 2000);
-            return;
-        }
+    if(calculateBtn) {
+        calculateBtn.addEventListener('click', function() {
+            if (!addressInput.value) {
+                addressInput.style.borderColor = 'red';
+                setTimeout(() => { addressInput.style.borderColor = '' }, 2000);
+                return;
+            }
 
-        const originalButtonText = calculateBtn.innerHTML;
-        calculateBtn.disabled = true;
-        calculateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Рассчитываем...';
+            const originalButtonText = calculateBtn.innerHTML;
+            calculateBtn.disabled = true;
+            calculateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Рассчитываем...';
 
-        setTimeout(() => {
-            calculateBtn.disabled = false;
-            calculateBtn.innerHTML = originalButtonText;
-            modal.classList.remove('hidden');
-        }, 1500);
-    });
+            setTimeout(() => {
+                calculateBtn.disabled = false;
+                calculateBtn.innerHTML = originalButtonText;
+                modal.classList.remove('hidden');
+            }, 1500);
+        });
+    }
     
-    // --- Логика закрытия всплывающего окна ---
     const closeModal = () => modal.classList.add('hidden');
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (event) => {
+    if(closeBtn) closeBtn.addEventListener('click', closeModal);
+    if(modal) modal.addEventListener('click', (event) => {
         if (event.target === modal) closeModal();
     });
     window.addEventListener('keydown', (event) => {
