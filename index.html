@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПромЛесСнаб - Пиломатериалы в Москве и МО</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content" data-aos="fade-down">
+                <!-- НОВОЕ: Текстовый логотип заменен на картинку -->
+                <a href="#" class="logo">
+                    <img src="img/logo.png" alt="Логотип Hub">
+                </a>
+                <nav class="nav">
+                    <a href="#about">О нас</a>
+                    <a href="#products">Продукция</a>
+                    <a href="#delivery">Доставка</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                <div class="header-contacts">
+                    <a href="tel:+79264000506" class="phone">+7 (926) 400-05-06</a>
+                    <a href="#contacts" class="btn btn-outline">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="video-background">
+                <div class="video-overlay"></div>
+                <video src="img/hero-video.mp4" autoplay loop muted playsinline poster="img/hero-bg.jpg"></video>
+            </div>
+            <div class="container hero-content">
+                <h1 data-aos="fade-up">Надежный поставщик пиломатериалов в Москве и области</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Высококачественная доска, брус и другие пиломатериалы от производителя. Соответствие ГОСТ.</p>
+                <a href="#contacts" class="btn" data-aos="fade-up" data-aos-delay="400">Получить консультацию и прайс</a>
+            </div>
+        </section>
+
+        <!-- Остальные секции остаются без изменений в HTML -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 data-aos="fade-up">Более 10 лет на рынке</h2>
+                <p class="about-text" data-aos="fade-up" data-aos-delay="100">"ПромЛесСнаб" — ваш стабильный партнер в сфере поставок пиломатериалов. Мы обеспечиваем строительные объекты и производства качественной продукцией.</p>
+                <div class="features">
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-warehouse"></i><h3>> 5000 м³</h3><p>на складе в Подмосковье</p></div>
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="300"><i class="fa-solid fa-award"></i><h3>10 лет</h3><p>опыта на рынке</p></div>
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="400"><i class="fa-solid fa-truck-fast"></i><h3>24/7</h3><p>отгрузка для оптовиков</p></div>
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="500"><i class="fa-solid fa-check-double"></i><h3>ГОСТ</h3><p>100% соответствие</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="container">
+                <h2 data-aos="fade-up">Наша продукция</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Мы поставляем пиломатериалы хвойных пород (ель, сосна) различных сортов и сечений.</p>
+                <div class="product-grid">
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="200"><img src="img/doska.jpg" alt="Обрезная доска"><h3>Доска обрезная</h3><p>Для каркасов, обрешетки, черновых полов.</p><a href="#contacts" class="btn">Узнать цену</a></div>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="300"><img src="img/brus.jpg" alt="Брус"><h3>Брус</h3><p>Для возведения домов, бань, несущих конструкций.</p><a href="#contacts" class="btn">Узнать цену</a></div>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="400"><img src="img/polovaya-doska.jpg" alt="Половая доска"><h3>Доска половая</h3><p>Сухая, шпунтованная доска для укладки чистовых полов.</p><a href="#contacts" class="btn">Узнать цену</a></div>
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="500"><img src="img/vagonka.jpg" alt="Вагонка"><h3>Вагонка / Имитация бруса</h3><p>Материалы для внутренней и внешней отделки.</p><a href="#contacts" class="btn">Узнать цену</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="delivery" id="delivery">
+            <div class="container">
+                <h2 data-aos="fade-up">Рассчитайте предварительную стоимость доставки</h2>
+                <div class="calculator" data-aos="fade-up" data-aos-delay="100">
+                    <div class="calc-field"><label>Откуда</label><input type="text" value="Наш склад (Московская обл.)" disabled></div>
+                    <div class="calc-field"><label for="address">Адрес доставки (Куда)</label><input type="text" id="address" placeholder="Например, г. Москва, ул. Строителей, 15"></div>
+                    <button class="btn" id="calculate-btn">Рассчитать</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <h2 data-aos="fade-up">Свяжитесь с нами</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Чтобы узнать цены и сделать заказ, позвоните нам или оставьте заявку.</p>
+                <div class="contact-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info">
+                        <h3>Наши контакты:</h3>
+                        <p><i class="fa-solid fa-phone"></i> <a href="tel:+79264000506">+7 (926) 400-05-06</a></p>
+                        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:ooohub@listl.ru">ooohub@listl.ru</a></p>
+                        <p><i class="fa-solid fa-location-dot"></i> Адрес склада: Московская область, г. Мытищи, ул. Промышленная, 1</p>
+                        <p><i class="fa-solid fa-clock"></i> Часы работы: Пн-Пт: 09:00 - 19:00, Сб: 10:00 - 16:00</p>
+                    </div>
+                    <div class="contact-map" id="map"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024, Hub. Все права защищены.</p>
+            <p>ООО "ХАБ" | ИНН 9500020361</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h2>Расчет готов!</h2>
+            <p>Стоимость пиломатериалов и точные условия доставки постоянно меняются. Мы не показываем цены на сайте, чтобы не вводить вас в заблуждение.</p>
+            <p class="modal-call">Позвоните нам, и мы сделаем для вас лучшее предложение на сегодня!</p>
+            <a href="tel:+79264000506" class="modal-phone">+7 (926) 400-05-06</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ТВОЙ_API_КЛЮЧ&lang=ru_RU"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
